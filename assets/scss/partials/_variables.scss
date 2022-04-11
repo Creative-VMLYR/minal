@@ -1,0 +1,9 @@
+$fonts-path: "../fonts";
+
+$font-family-sans-regular-name: Oregon-LDO !default;
+$font-family-sans-regular-italic-name: Oregon-LDO-Oblique !default;
+$font-family-sans-bold-name: Oregon-LDO-Bold !default;
+
+$font-family-sans-regular-url: "#{$fonts-path}/#{$font-family-sans-regular-name}" !default;
+$font-family-sans-regular-italic-url: "#{$fonts-path}/#{$font-family-sans-regular-italic-name}" !default;
+$font-family-sans-bold-url: "#{$fonts-path}/#{$font-family-sans-bold-name}" !default;

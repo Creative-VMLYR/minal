@@ -1,0 +1,148 @@
+// Variables
+@import "./partials/variables";
+
+// Tailwind Directives
+@tailwind base;
+@layer base {
+  // Custom Fonts
+  @font-face {
+    font-family: "#{$font-family-sans-regular-name}";
+    src: url("#{$font-family-sans-regular-url}.woff2") format("woff2"),
+      url("#{$font-family-sans-regular-url}.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "#{$font-family-sans-regular-italic-name}";
+    src: url("#{$font-family-sans-regular-italic-url}.woff2") format("woff2"),
+      url("#{$font-family-sans-regular-italic-url}.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "#{$font-family-sans-bold-name}";
+    src: url("#{$font-family-sans-bold-url}.woff2") format("woff2"),
+      url("#{$font-family-sans-bold-url}.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  // Default Font Family
+  html {
+    font-family: $font-family-sans-regular-name, Georgia, serif;
+    @apply text-neutral-800;
+  }
+
+  .font-bold {
+    font-family: "#{$font-family-sans-bold-name}";
+  }
+
+  .font-italic {
+    font-family: "#{$font-family-sans-regular-italic-name}";
+  }
+
+  // Typography
+  h1,
+  .h1 {
+    @apply text-5xl;
+  }
+
+  h2,
+  .h2 {
+    @apply text-3xl;
+  }
+
+  h3,
+  .h3 {
+    @apply text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply text-xl;
+  }
+
+  h5,
+  .h5 {
+    @apply text-lg;
+  }
+
+  h6,
+  .h6 {
+    @apply text-base;
+  }
+}
+@tailwind components;
+@layer components {
+  // Buttons
+  .btn-round {
+    @apply flex items-center justify-center text-center w-14 h-14 border rounded-full;
+  }
+  .btn {
+    @apply inline-block font-medium text-base px-5 py-2.5 text-center uppercase tracking-widest focus:outline-none;
+  }
+
+  // Accordion
+  .accordion-button {
+    &:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22%23212529%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M1.646 4.646a.5.5.0 01.708.0L8 10.293l5.646-5.647a.5.5.0 01.708.708l-6 6a.5.5.0 01-.708.0l-6-6a.5.5.0 010-.708z%22/%3E%3C/svg%3E");
+    }
+    &:not(.collapsed) {
+      color: inherit;
+      background-color: inherit;
+      box-shadow: none;
+      &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22%232563eb%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M1.646 4.646a.5.5.0 01.708.0L8 10.293l5.646-5.647a.5.5.0 01.708.708l-6 6a.5.5.0 01-.708.0l-6-6a.5.5.0 010-.708z%22/%3E%3C/svg%3E");
+      }
+    }
+  }
+}
+@tailwind utilities;
+@layer utilities {
+  // SVG Elements
+  .svg-scaler {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 100%;
+    svg {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  // YouTube Responsive
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Text Stroke
+  .text-stroke {
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+  }
+
+  // Post Content
+  .post-content-body {
+    p {
+      @apply text-xl leading-7;
+      &:not(:last-child) {
+        @apply mb-5;
+      }
+    }
+  }
+}
