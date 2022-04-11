@@ -4,7 +4,7 @@ import { getLandingPage, getWebsiteOptions } from "../lib/api";
 // Components
 import PageHead from "../components/pageHead/PageHead";
 import HeroSection1 from "../components/heroSection/HeroSection1";
-import FeatureSection1 from "../components/featureSections/featureSection1";
+import FeatureSection1 from "../components/featureSections/FeatureSection1";
 import FeatureSection2 from "../components/featureSections/FeatureSection2";
 import FeatureSection3 from "../components/featureSections/FeatureSection3";
 import FeatureSection4 from "../components/featureSections/FeatureSection4";
