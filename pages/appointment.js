@@ -5,7 +5,7 @@ import { getAppointmentFormData } from "../lib/api";
 
 // Components
 import Form1 from "../components/forms/Form1";
-import Navigation2 from "../components/navigation/navigation2";
+import Navigation2 from "../components/navigation/Navigation2";
 
 // Components
 import PageHead from "../components/pageHead/PageHead";
