@@ -31,6 +31,9 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
+      translate: {
+        4.25: "17rem",
+      },
     },
   },
   plugins: [
