@@ -35,18 +35,24 @@ const Form1 = ({ formData }) => {
 
     const nativeFormFields = form.querySelectorAll(".field");
 
-    let formNewData = new Object();
+    let formNewData = {
+      field_values: "",
+      source_page: 1,
+      target_page: 0,
+    };
 
     nativeFormFields.forEach((nativeFormField) => {
-      formNewData[nativeFormField.getAttribute("data-field-id")] =
-        nativeFormField.value;
+      formNewData[nativeFormField.getAttribute("name")] = nativeFormField.value;
     });
 
-    formNewData.form_id = formID;
+    /*   formNewData.form_id = formID.toString(); */
 
-    const JSONdata = JSON.stringify(formNewData);
+    // const JSONdata = JSON.stringify(formNewData);
 
-    const postedDataResponse = await postAppointmentFormData(JSONdata);
+    const postedDataResponse = await postAppointmentFormData(
+      formNewData,
+      formID
+    );
 
     console.log(postedDataResponse);
   };
