@@ -4,6 +4,8 @@
  * ------------------------------------------------------------------------
  */
 
+import "tw-elements";
+
 (function ($, window, document, undefined) {
   "use strict";
   const windowEl = window,

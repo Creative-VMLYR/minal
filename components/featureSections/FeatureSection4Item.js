@@ -6,9 +6,9 @@ import { WORDPRESS_MEDIA_API_URL } from "../../lib/constants";
 const FeatureSection4Item = ({ speciality }) => {
   const specialityTitle = speciality.specialty_title;
   const specialityContent = speciality.specialty_content_text;
-  const specialityBgImgId = speciality.background_image;
+  const specialityBgImg = speciality.background_image;
 
-  const [specialityImg, setSpecialityImg] = useState(null);
+  /*   const [specialityImg, setSpecialityImg] = useState(null);
 
   const fetchImage = async () => {
     try {
@@ -23,13 +23,13 @@ const FeatureSection4Item = ({ speciality }) => {
 
   useEffect(() => {
     fetchImage();
-  }, []);
+  }, []); */
   return (
     <div className="relative p-5 bg-teal-650 rounded-2xl overflow-hidden">
-      {specialityImg && (
+      {specialityBgImg.url && (
         <div
           className="absolute inset-0 z-10 bg-cover mix-blend-overlay opacity-50"
-          style={{ backgroundImage: `url('${specialityImg.source_url}')` }}
+          style={{ backgroundImage: `url('${specialityBgImg.url}')` }}
         ></div>
       )}
 
@@ -38,7 +38,13 @@ const FeatureSection4Item = ({ speciality }) => {
           <h4 className="font-bold mb-3">{specialityTitle}</h4>
         )}
 
-        {specialityContent && specialityContent}
+        {specialityContent && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: specialityContent,
+            }}
+          ></div>
+        )}
       </div>
     </div>
   );

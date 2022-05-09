@@ -18,9 +18,12 @@ const Footer = ({ websiteOptionsData }) => {
         <div className="container mx-auto py-4">
           <div className="footer-content grid grid-cols-3 gap-x-1 text-white">
             {copyrightText && (
-              <p className="text-sm uppercase tracking-widest">
-                {copyrightText}
-              </p>
+              <p
+                className="text-sm uppercase tracking-widest"
+                dangerouslySetInnerHTML={{
+                  __html: copyrightText,
+                }}
+              ></p>
             )}
 
             <ul className="flex justify-center text-center uppercase text-sm tracking-widest">

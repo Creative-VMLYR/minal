@@ -1,7 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
-import { WORDPRESS_MEDIA_API_URL } from "../../lib/constants";
 import Image from "next/image";
 
 const FeatureSection3 = ({ aboutSection2Data }) => {
@@ -10,25 +6,9 @@ const FeatureSection3 = ({ aboutSection2Data }) => {
   const aboutSectionDataTitlePart2 = aboutSection2Data0.content_title_part_2;
   const aboutSectionDataTitle2 = aboutSection2Data0.content_title_2;
   const aboutSectionDataText = aboutSection2Data0.content_text;
-  const aboutSectionDataImageId = aboutSection2Data0.content_image;
+  const aboutSectionDataImage = aboutSection2Data0.content_image;
   const aboutSectionDataCTA = aboutSection2Data0.content_cta;
 
-  const [aboutSectionDataImg, setAboutSectionDataImg] = useState(null);
-
-  const fetchImage = async () => {
-    try {
-      const aboutSectionDataImgRes = await axios.get(
-        `${WORDPRESS_MEDIA_API_URL}/${aboutSectionDataImageId}`
-      );
-      setAboutSectionDataImg(aboutSectionDataImgRes.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchImage();
-  }, []);
   return (
     <section className="page-section feature-section-3 mb-14">
       <div className="container px-28 mx-auto">
@@ -67,7 +47,12 @@ const FeatureSection3 = ({ aboutSection2Data }) => {
             )}
 
             {aboutSectionDataText && (
-              <div className="text-xl">{aboutSectionDataText}</div>
+              <div
+                className="text-xl"
+                dangerouslySetInnerHTML={{
+                  __html: aboutSectionDataText,
+                }}
+              ></div>
             )}
 
             {aboutSectionDataCTA && (
@@ -85,17 +70,13 @@ const FeatureSection3 = ({ aboutSection2Data }) => {
             )}
           </div>
 
-          {aboutSectionDataImg && (
+          {aboutSectionDataImage.url && (
             <figure className="fs-3-content-img pl-28">
               <Image
-                src={aboutSectionDataImg.source_url}
-                alt={
-                  aboutSectionDataImg.alt_text
-                    ? aboutSectionDataImg.alt_text
-                    : ""
-                }
-                width={aboutSectionDataImg.media_details.width}
-                height={aboutSectionDataImg.media_details.height}
+                src={aboutSectionDataImage.url}
+                alt={aboutSectionDataImage.alt ? aboutSectionDataImage.alt : ""}
+                width={aboutSectionDataImage.width}
+                height={aboutSectionDataImage.height}
                 layout="raw"
               />
             </figure>
