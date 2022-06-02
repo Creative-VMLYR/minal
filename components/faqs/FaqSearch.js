@@ -2,7 +2,7 @@ import React, { useContext, useState, useMemo } from "react";
 import debounce from "lodash.debounce";
 
 // Context Import
-import FaqContext from "./faqContext";
+import FaqContext from "./FaqContext";
 
 const FaqSearch = () => {
   const faqContextData = useContext(FaqContext);

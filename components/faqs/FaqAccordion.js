@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Image from "next/image";
 
 // Context
-import FaqContext from "./faqContext";
+import FaqContext from "./FaqContext";
 
 const FaqAccordion = () => {
   const faqContextData = useContext(FaqContext);

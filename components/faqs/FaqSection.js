@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Context
-import FaqContext from "./faqContext";
+import FaqContext from "./FaqContext";
 
 // Components
 import FaqAccordion from "./FaqAccordion";
