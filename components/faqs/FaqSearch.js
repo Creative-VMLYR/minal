@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useContext, useState, useMemo } from "react";
+import debounce from "lodash.debounce";
 
-const FaqSearch = ({ faqSearchPlaceholder }) => {
+// Context Import
+import FaqContext from "./faqContext";
+
+const FaqSearch = () => {
+  const faqContextData = useContext(FaqContext);
+  const { faqSearchPlaceholder, setSearchTerm } = faqContextData.state;
+  const [searchValue, setSearchValue] = useState("");
+
+  const debounceDelay = 500;
+
+  const changeHandler = (e) => {
+    const inputValue = e.target.value;
+
+    setSearchValue(inputValue);
+    setSearchTerm(inputValue);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setSearchTerm(searchValue);
+  };
+
+  const debouncedChangeHandler = useMemo(
+    () => debounce(changeHandler, debounceDelay),
+    []
+  );
+
   return (
-    <section className="search-section mb-14">
+    <section className="search-section relative z-20 mb-14">
       <div className="container px-28 mx-auto">
         <div className="w-8/12 mx-auto bg-white p-5 rounded-2xl">
-          <form className="relative">
+          <form className="relative" onSubmit={submitHandler}>
             <input
+              onChange={debouncedChangeHandler}
               placeholder={faqSearchPlaceholder}
               type="search"
               name="searchFaq"

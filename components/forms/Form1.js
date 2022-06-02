@@ -79,7 +79,7 @@ const Form1 = ({ formData }) => {
 
   return (
     <>
-      <section className="page-section form-1 mt-14">
+      <section className="page-section form-1 pt-40">
         <div className="container mx-auto px-28">
           <header className="form-1-header mb-14 text-center text-white">
             {title && <h1>{title}</h1>}

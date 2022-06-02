@@ -13,9 +13,9 @@ import PageHead from "../components/pageHead/PageHead";
 export default function Appointment({ formData, menuItemsData }) {
   return (
     <>
+      <Navigation menuItemsData={menuItemsData} addLogo="true" />
       <main className="page-wrap position-relative bg-teal-650">
         <PageHead />
-        <Navigation menuItemsData={menuItemsData} />
         <Form1 formData={formData} />
       </main>
     </>
